@@ -8,8 +8,7 @@ import lombok.ToString;
 @Getter
 @ToString
 public class BankDTO {
-	private Long accountNumber;
-
+	
 	private String accountHolderName;
 
 	private String branchName;
