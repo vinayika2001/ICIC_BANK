@@ -50,7 +50,7 @@ public interface BankService {
      *
      * @param accountNumber Account number to be deleted
      */
-    void deleteAccount(Long accountNumber);
+    String deleteAccount(Long accountNumber);
 
     /*
      * Updates the branch name for a specific bank account.

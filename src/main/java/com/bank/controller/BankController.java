@@ -73,8 +73,8 @@ public class BankController {
     @DeleteMapping("/delete/{accountNumber}")
     public String deleteAccount(@PathVariable("accountNumber") Long accountNumber) {
         logger.info("Deleting account with accountNumber: {}", accountNumber);
-        bankService.deleteAccount(accountNumber);
-        return "Account deleted successfully!";
+       return bankService.deleteAccount(accountNumber);
+        
     }
 
     /**

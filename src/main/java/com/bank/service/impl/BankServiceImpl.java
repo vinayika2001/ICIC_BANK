@@ -102,12 +102,23 @@ public class BankServiceImpl implements BankService {
      */
     @Override
     @Transactional
-    public void deleteAccount(Long accountNumber) {
+    public String deleteAccount(Long accountNumber) {
 
         logger.info("Deleting account with accountNumber: {}", accountNumber);
 
+        // Check if account exists
+        if (!bankRepository.existsByAccountNumber(accountNumber)) {
+            logger.warn("Account not found for accountNumber: {}", accountNumber);
+            return "Account number is incorrect";
+        }
+
+        // Delete account if exists
         bankRepository.deleteByAccountNumber(accountNumber);
+
+        logger.info("Account deleted successfully for accountNumber: {}", accountNumber);
+        return "Account deleted successfully";
     }
+
 
     /*
      * Generates a unique 15-digit account number.
